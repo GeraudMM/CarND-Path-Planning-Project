@@ -30,6 +30,7 @@ Here are the main script files:
 This project involves the Term 3 Simulator from Udacity which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).
 
 Download the [CarND-Path-Planning repo](https://github.com/udacity/CarND-Path-Planning-Project).
+(If you choose to use my repo to start, you should download this [Eigen-3.3](https://github.com/udacity/CarND-Path-Planning-Project/tree/master/src/Eigen-3.3) folder of libraries from the original repo and add it into your 'src' folder.)
 
 Then install uWebSocketIO.
 The Udacity repository includes two files that can be used to set up and install [uWebSocketIO](https://github.com/uWebSockets/uWebSockets) for either Linux or Mac systems. For windows you can use either Docker, VMware, or even [Windows 10 Bash on Ubuntu](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/) to install uWebSocketIO.
