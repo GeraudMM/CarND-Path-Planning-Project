@@ -45,8 +45,19 @@ Once the install for uWebSocketIO is complete, the main program can be built and
 
 Then you only need to open the executable file in the `Term 3 Simulator` folder and launch the third project to watch the algorithm evovle.
 
-### Description 
+### Other Important Dependencies
 
-### Instruction
+* cmake >= 3.5
+  * All OSes: [click here for installation instructions](https://cmake.org/install/)
+* make >= 4.1 (Linux, Mac), 3.81 (Windows)
+  * Linux: make is installed by default on most Linux distros
+  * Mac: [install Xcode command line tools to get make](https://developer.apple.com/xcode/features/)
+  * Windows: [Click here for installation instructions](http://gnuwin32.sourceforge.net/packages/make.htm)
+* gcc/g++ >= 5.4
+  * Linux: gcc / g++ is installed by default on most Linux distros
+  * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
+  * Windows: recommend using [MinGW](http://www.mingw.org/)
+
+### Description 
 
 ### Reflection
