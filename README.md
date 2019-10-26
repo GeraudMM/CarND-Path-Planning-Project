@@ -14,6 +14,22 @@ Each waypoint in the list contains [x,y,s,dx,dy] values. x and y are the waypoin
 
 The highway's waypoints loop around so the frenet s value, distance along the road, goes from 0 to 6945.554.
 
+### Description 
+
+#### Trajectory generation
+Most of this code comes from Aaron Brown's demonstration in the project FAQ. In order to create a smooth curve, we use the splines library which allows us to be sure that we do not have any oscillation in the trajectory while passing through all the points we choose.
+
+#### Behavorial Planning
+This part is coded line 124 through 201 from the main.cpp file.
+At first we have to decide when the car need to change it's behavior. By default the car will go in a straight line at 49.5 MPH but then, if it find itself behind a slower car, it has to chose wether to slow down, go to the left or go to the right lane. To be sure of its decisions, the car will first have to know in which lane it is and if they are any other car at its left or right going to slow or to fast to let it change lane. For example, even if there is a car quite near in an other lane where we would like to go, if its going slower than our car, we can still go in its lane and be quite sure to avoid any collision.
+Then, we also decide to go by default in the second line which allow us to turn left or right when we meet another slow car.
+Finally, to be sure to finish every change of line we began, we use the 'changing' boolean which will be set as true while the car hasn't move from more than 3.3 meters in the 'd' coordinate.
+Morover, if the car can't change lane, it will slow down to avoid to crash in the car in front and reaccelerate once the car is far enough. This part could be improve by using a PID controller to fit the front vehicle's speed.
+
+All in all, to improve the model I can think at least of two way:
+- First, we could use a cost function as explained during the course. This could be easier and more understandable while using more data like the accelerations of the other cars for example.
+- Then, we could use a Deep Reinforcement Learning to train a neural network for the behavioral part. It could take the data of the sensor fusion as input and return which lane seems to be the better choice. We could reward it in function of it's main speed and give it malus when it hit another car.
+
 ## Files description
 
 The script files are in the `src` folder. All the other files or folders are there to ensure we can run the program successfully. 
@@ -58,7 +74,3 @@ Then you only need to open the executable file in the `Term 3 Simulator` folder 
   * Linux: gcc / g++ is installed by default on most Linux distros
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
-
-### Description 
-
-### Reflection
