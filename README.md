@@ -20,15 +20,15 @@ The highway's waypoints loop around so the frenet s value, distance along the ro
 Most of this code comes from Aaron Brown's demonstration in the project FAQ. In order to create a smooth curve, we use the splines library which allows us to be sure that we do not have any oscillation in the trajectory while passing through all the points we choose.
 
 #### Behavorial Planning
-This part is coded line 124 through 201 from the main.cpp file.
-At first we have to decide when the car need to change it's behavior. By default the car will go in a straight line at 49.5 MPH but then, if it find itself behind a slower car, it has to chose wether to slow down, go to the left or go to the right lane. To be sure of its decisions, the car will first have to know in which lane it is and if they are any other car at its left or right going to slow or to fast to let it change lane. For example, even if there is a car quite near in an other lane where we would like to go, if its going slower than our car, we can still go in its lane and be quite sure to avoid any collision.
-Then, we also decide to go by default in the second line which allow us to turn left or right when we meet another slow car.
-Finally, to be sure to finish every change of line we began, we use the 'changing' boolean which will be set as true while the car hasn't move from more than 3.3 meters in the 'd' coordinate.
-Morover, if the car can't change lane, it will slow down to avoid to crash in the car in front and reaccelerate once the car is far enough. This part could be improve by using a PID controller to fit the front vehicle's speed.
+This part is coded on lines 124 to 201 of the main.cpp file.
+First, we have to decide when the car should change its behaviour. By default, the car will go straight at 49.5 mph, but if it is behind a slower car, it will have to choose between slowing down, turning left or turning into the right lane. To be sure of its decisions, the car will first need to know which lane it is in and whether there is another car to its left or right that will be too slow or too fast to allow it to change lanes. For example, even if there is a car not far behind in another lane we would like to go, if it goes slower than our car, we can still go in its lane and be sure to avoid a collision.
+Then, we also decide to go by default in the second line which allows us to turn left or right when we meet another slow car.
+Finally, to be sure to complete each line change we have started, we use the "changing" Boolean which will be defined as true while the car has not moved more than 3.3 meters in the coordinate'd'.
+In addition, if the car cannot change lanes, it will slow down to avoid crashing into the car in front of it and accelerate again once the car is far enough. This part could be improved by using a PID controller to adapt to the speed of the front vehicle.
 
-All in all, to improve the model I can think at least of two way:
-- First, we could use a cost function as explained during the course. This could be easier and more understandable while using more data like the accelerations of the other cars for example.
-- Then, we could use a Deep Reinforcement Learning to train a neural network for the behavioral part. It could take the data of the sensor fusion as input and return which lane seems to be the better choice. We could reward it in function of it's main speed and give it malus when it hit another car.
+Overall, to improve the model, I can think of at least two ways:
+- First of all, we could use a cost function as explained during the course. This could be easier and more understandable if we used more data such as the accelerations of other cars for example.
+- Then, we could use Deep Reinforcement Learning to train a neural network for the behavioral part. It could take the data of the sensor fusion as input and return which lane seems to be the best. We could reward it in function of it's main speed and give it malus when it hit another car. This should not require a very big neural network.
 
 ## Files description
 
