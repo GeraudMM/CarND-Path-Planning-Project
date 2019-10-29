@@ -30,7 +30,7 @@ Overall, to improve the model, I can think of at least two ways:
 - First of all, we could use a cost function as explained during the course. This could be easier and more understandable if we used more data such as the accelerations of other cars for example.
 - Then, we could use Deep Reinforcement Learning to train a neural network for the behavioral part. It could take the data of the sensor fusion as input and return which lane seems to be the best. We could reward it in function of it's main speed and give it malus when it hit another car. This should not require a very big neural network.
 
-## Files description
+### Files description
 
 The script files are in the `src` folder. All the other files or folders are there to ensure we can run the program successfully. 
 Here are the main script files:
